@@ -30,6 +30,7 @@ def process():
     r = requests.get(url = URL,headers=headers)
     print(r.text)
     s3_client = boto3.client('s3',region_name='us-east-1')
+    
     s3_client.put_object(Body=r.text, Bucket='empjson123', Key='synopcharges.json')
 
     statement = "COPY INTO OUR_FIRST_DB.PUBLIC.employee_info FROM @OUR_FIRST_DB.PUBLIC.json_stage files = ('emp.json')"
