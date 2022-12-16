@@ -1,0 +1,32 @@
+{
+  "name" : "pythonjob",
+  "description" : "",
+  "role" : "arn:aws:iam::883080189308:role/pythonrole",
+  "executionProperty" : {
+    "maxConcurrentRuns" : 1
+  },
+  "command" : {
+    "name" : "pythonshell",
+    "scriptLocation" : "s3://aws-glue-assets-883080189308-us-east-1/scripts/pythonjob.py",
+    "pythonVersion" : "3"
+  },
+  "defaultArguments" : {
+    "--extra-py-files" : "s3://pythonglue123/snowflake_connector_python-2.3.8-py3-none-any.whl",
+    "--enable-job-insights" : "false",
+    "--job-language" : "python",
+    "--TempDir" : "s3://aws-glue-assets-883080189308-us-east-1/temporary/",
+    "--enable-glue-datacatalog" : "true"
+  },
+  "maxRetries" : 1,
+  "allocatedCapacity" : 0,
+  "timeout" : 10,
+  "maxCapacity" : 0.0625,
+  "glueVersion" : "1.0",
+  "executionClass" : "STANDARD",
+  "sourceControlDetails" : {
+    "provider" : "GITHUB",
+    "repository" : "Testring",
+    "branch" : "main",
+    "folder" : "pythonjob"
+  }
+}
